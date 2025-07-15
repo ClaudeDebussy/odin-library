@@ -1,4 +1,4 @@
-const myLibrary = [];
+let myLibrary = [];
 
 // Book constructor
 function Book(title, author, pages, isRead) {
@@ -61,6 +61,8 @@ function populateLibrary() {
     readStatus.classList.add("unread")
   };
 
+  card.dataset.uuid = book.id;
+
   container.appendChild(card);
   card.appendChild(title);
   card.appendChild(author);
@@ -105,4 +107,16 @@ newBookForm.addEventListener("submit", (e) => {
   populateLibrary();
 });
 
+
+
+
+
 populateLibrary();
+
+const trash = document.querySelector(".trash");
+trash.addEventListener("click", removeBook);
+function removeBook() {
+  var uuid = trash.parentNode.getAttribute("data-uuid");
+  myLibrary = myLibrary.filter(book => book.id !== uuid);
+  populateLibrary();
+};
