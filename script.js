@@ -70,6 +70,8 @@ function populateLibrary() {
   card.appendChild(trashIcon);
   card.appendChild(readStatus);
   });
+
+  setupTrashListeners();
 }
 
 var modal = document.querySelector("#newBookModal");
@@ -107,16 +109,22 @@ newBookForm.addEventListener("submit", (e) => {
   populateLibrary();
 });
 
-
-
-
-
 populateLibrary();
 
-const trash = document.querySelector(".trash");
-trash.addEventListener("click", removeBook);
-function removeBook() {
-  var uuid = trash.parentNode.getAttribute("data-uuid");
-  myLibrary = myLibrary.filter(book => book.id !== uuid);
-  populateLibrary();
+function setupTrashListeners() {
+  const trashIcons = document.querySelectorAll(".trash");
+  trashIcons.forEach(trash => {
+    trash.addEventListener("click", removeBook);
+  });
+
+  function removeBook() {
+    var uuid = this.parentNode.getAttribute("data-uuid");
+    myLibrary = myLibrary.filter(book => book.id !== uuid);
+    populateLibrary();
+    
+    const trashIcons = document.querySelectorAll(".trash");
+    trashIcons.forEach(trash => {
+    trash.addEventListener("click", removeBook);
+    });
+  };
 };
