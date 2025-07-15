@@ -1,0 +1,158 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+#root, #__next {
+  isolation: isolate;
+}
+
+/* MY CSS BELOW */
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: whitesmoke;
+}
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 75px;
+
+  background-color: bisque;
+
+  padding: 1em;
+  box-shadow: 3px 8px 10px 2px #6a6a6a29;
+}
+
+#header button {
+  font-size: 1em;
+  font-weight: bold;
+
+  color: #FFFFFF;
+  background-color: brown;
+
+  border: none;
+  border-radius: 3px;
+
+  padding: .7em 3em;
+  cursor: pointer;
+}
+
+#header button:hover {
+  background-color: rgb(107, 28, 28);
+}
+
+#header button:active {
+  background-color: rgb(63, 16, 16);
+}
+
+#container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding-top: 1em;
+}
+
+.card {
+  display: grid;
+  grid-template-areas: 
+  'title title'
+  'author author'
+  'pages pages'
+  'trash readStatus';
+  justify-content: space-between;
+  
+  margin: 1em;
+  padding: 1em;
+  padding-left: 2em;
+
+  background-color: rgb(245, 233, 220);
+  border-radius: 1em;
+  box-shadow: 3px 8px 10px 2px #6a6a6a29;
+
+  border-left: .8em solid brown;
+}
+
+.card .title {
+  grid-area: title;
+  
+  font-size: 1.2em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card .author {
+  grid-area: author;
+  
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card .pages {
+  grid-area: pages;
+  margin-bottom: .5em;
+}
+
+.card .trash {
+  grid-area: trash;
+  
+  height: 1.5em;
+  width: 1.5em;
+}
+
+.finished,
+.unread {
+  grid-area: readStatus;
+  justify-self: end;
+}
+
+.finished {
+  color: rgb(108, 180, 108);
+}
+
+.unread {
+  color: grey;
+}
