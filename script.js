@@ -65,4 +65,24 @@ function populateLibrary() {
   });
 }
 
+var modal = document.querySelector("#newBookModal");
+var newBookButton = document.querySelector("#newBookButton");
+var closeNewBookButton = document.querySelector("#closeNewBookButton");
+
+newBookButton.addEventListener("click", openNewBookModal);
+function openNewBookModal() {
+  modal.style.display = "block";
+}
+
+closeNewBookButton.addEventListener("click", closeNewBookModal);
+function closeNewBookModal() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+}
+
 populateLibrary();
