@@ -26,6 +26,11 @@ addBookToLibrary("A Funny Thing Happened On The Way To The Forum", "Burt Shevelo
 const container = document.querySelector("#container");
 
 function populateLibrary() {
+  // Clear container
+  while (container.firstChild) {
+    container.removeChild(container.firstChild);
+  }
+  
   myLibrary.forEach(book => {
   const card = document.createElement("div");  
   card.classList.add("card");
@@ -84,5 +89,20 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+const newBookForm = document.querySelector("#newBookForm");
+newBookForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const title = document.querySelector("#title").value;
+  const author = document.querySelector("#author").value;
+  const pages = document.querySelector("#pages").value;
+  const finished = document.querySelector("#finished").checked ? true : false;
+
+  addBookToLibrary(title, author, pages, finished);
+
+  closeNewBookModal();
+  populateLibrary();
+});
 
 populateLibrary();
