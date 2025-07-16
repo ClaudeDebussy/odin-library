@@ -163,14 +163,13 @@ function setupTrashListeners() {
 
 function setupToggleReadListeners() {
   const toggleReadButtons = document.querySelectorAll(".read-status");
-  // console.log(toggleReadButtons);
   toggleReadButtons.forEach(button => {
     button.addEventListener("click", toggleRead);
   })
 
   function toggleRead() {
     let uuid = this.parentNode.getAttribute("data-uuid");
-    book = myLibrary.filter(book => book.id == uuid);
-    book[0].toggleRead();
+    book = myLibrary.find(book => book.id == uuid);
+    if (book) book.toggleRead();
   }
 }
