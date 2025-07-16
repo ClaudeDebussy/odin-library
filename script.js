@@ -130,11 +130,6 @@ function setupTrashListeners() {
     var uuid = this.parentNode.getAttribute("data-uuid");
     myLibrary = myLibrary.filter(book => book.id !== uuid);
     populateLibrary();
-    
-    const trashIcons = document.querySelectorAll(".trash");
-    trashIcons.forEach(trash => {
-    trash.addEventListener("click", removeBook);
-    });
   };
 };
 
