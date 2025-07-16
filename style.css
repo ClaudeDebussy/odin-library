@@ -185,8 +185,63 @@ body {
   background-color: #fefefe;
   margin: 15% auto;
   padding: 1em;
+  padding-left: 2em;
   border: 1px solid #888;
   width: 80%;
+  border-radius: 1em;
+}
+
+#modal-content span {
+  padding-top: 0;
+  padding-left: 1em;
+  padding-right: 0.5em;
+}
+
+#newBookForm {
+  display: grid;
+}
+
+#newBookForm input {
+  margin-bottom: .5em;
+  width: 100%;
+  font-size: 1.3em;
+}
+
+#newBookForm .author-div {
+  margin-bottom: .5em;
+}
+
+#newBookForm .pages-finished-submit-div {
+  display: flex;
+  align-items: center;
+}  
+
+#newBookForm .pages-finished-submit-div > * {
+  margin-right: 2em;
+}  
+
+#newBookForm .pages-finished-submit-div .button-div {
+  margin-right: 0em;
+}  
+
+#newBookForm input[type="number"] {
+  width: 100px;
+}
+
+#newBookForm .button-div button {
+  font-size: 1em;
+  font-weight: bold;
+
+  color: #FFFFFF;
+  background-color: brown;
+
+  border: none;
+  border-radius: 3px;
+
+  padding: .7em 3em;
+  cursor: pointer;
+  margin-right: 0;
+
 }
 
 #closeNewBookButton {

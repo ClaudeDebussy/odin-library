@@ -11,15 +11,21 @@
     <div id="modal-content">
       <span id="closeNewBookButton">&times;</span>
       <form action="" id="newBookForm">        
-        <label for="title">Title</label>
-        <input type="text" name="title" id="title" placeholder="The Giver">
-        <label for="author">Author</label>
-        <input type="text" name="author" id="author" placeholder="Lois Lowry">
-        <label for="pages">Pages</label>
-        <input type="number" name="pages" id="pages" placeholder="208">
-        <label for="finished">Finished</label>
-        <input type="checkbox" name="finished" id="finished" value="is-finished">
-        <button>Submit</button>
+        <div class="title-div">
+          <label for="title">Title</label>
+          <input type="text" name="title" id="title" placeholder="The Giver">
+        </div>
+        <div class="author-div">
+          <label for="author">Author</label>
+          <input type="text" name="author" id="author" placeholder="Lois Lowry">
+        </div>
+        <div class="pages-finished-submit-div">
+          <label for="pages">Pages</label>
+          <input type="number" name="pages" id="pages" placeholder="208">
+          <label for="finished">Finished</label>
+          <input type="checkbox" name="finished" id="finished" value="is-finished">
+          <div class="button-div"><button>Submit</button></div>
+        </div>
       </form>
     </div>
   </div>
