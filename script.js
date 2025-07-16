@@ -22,14 +22,37 @@ function Book(title, author, pages, isRead) {
 
 Object.assign(Book.prototype, bookPrototype);
 
-function addBookToLibrary(title, author, pages, isRead) {
+function addBookToLibrary({title, author, pages, isRead}) {
   myLibrary.push(new Book(title, author, pages, isRead));
 }
 
-addBookToLibrary("Harry Potter", "J.K. Rowling", 420, true);
-addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 543, true);
-addBookToLibrary("12th Night", "William Shakespeare", 221, false);
-addBookToLibrary("A Funny Thing Happened On The Way To The Forum", "Burt Shevelove and Larry Gelbart", 124, false);
+addBookToLibrary({
+  title: "Harry Potter",
+  author: "J.K. Rowling",
+  pages: 420,
+  isRead: true
+});
+
+addBookToLibrary({
+  title: "The Hobbit",
+  author: "J.R.R. Tolkien",
+  pages: 543,
+  isRead: true
+});
+
+addBookToLibrary({
+  title: "12th Night",
+  author: "William Shakespeare",
+  pages: 221,
+  isRead: false
+});
+
+addBookToLibrary({
+  title: "A Funny Thing Happened On The Way To The Forum",
+  author: "Burt Shevelove and Larry Gelbart",
+  pages: 124,
+  isRead: false
+});
 
 const container = document.querySelector("#container");
 
@@ -112,7 +135,12 @@ newBookForm.addEventListener("submit", (e) => {
   const pages = document.querySelector("#pages").value;
   const finished = document.querySelector("#finished").checked ? true : false;
 
-  addBookToLibrary(title, author, pages, finished);
+  addBookToLibrary({
+    title: title, 
+    author: author, 
+    pages: pages, 
+    isRead: finished
+  });
 
   closeNewBookModal();
   populateLibrary();
