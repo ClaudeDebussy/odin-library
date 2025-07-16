@@ -1,7 +1,7 @@
 let myLibrary = [];
 
 const bookPrototype = {
-  toggleRead1() {
+  toggleRead() {
     this.isRead ? this.isRead = false : this.isRead = true;
     populateLibrary();
   }
@@ -83,9 +83,9 @@ function populateLibrary() {
   setupToggleReadListeners();
 }
 
-var modal = document.querySelector("#newBookModal");
-var newBookButton = document.querySelector("#newBookButton");
-var closeNewBookButton = document.querySelector("#closeNewBookButton");
+let modal = document.querySelector("#newBookModal");
+let newBookButton = document.querySelector("#newBookButton");
+let closeNewBookButton = document.querySelector("#closeNewBookButton");
 
 newBookButton.addEventListener("click", openNewBookModal);
 function openNewBookModal() {
@@ -127,7 +127,7 @@ function setupTrashListeners() {
   });
 
   function removeBook() {
-    var uuid = this.parentNode.getAttribute("data-uuid");
+    let uuid = this.parentNode.getAttribute("data-uuid");
     myLibrary = myLibrary.filter(book => book.id !== uuid);
     populateLibrary();
   };
@@ -141,8 +141,8 @@ function setupToggleReadListeners() {
   })
 
   function toggleRead() {
-    var uuid = this.parentNode.getAttribute("data-uuid");
+    let uuid = this.parentNode.getAttribute("data-uuid");
     book = myLibrary.filter(book => book.id == uuid);
-    book[0].toggleRead1();
+    book[0].toggleRead();
   }
 }
