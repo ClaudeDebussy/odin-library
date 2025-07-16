@@ -136,17 +136,26 @@ body {
   margin-bottom: .5em;
 }
 
-.card .trash {
+.trash {
   grid-area: trash;
   
   height: 1.5em;
   width: 1.5em;
 }
 
+.trash:hover {
+  cursor: pointer;
+}
+
 .finished,
 .unread {
   grid-area: readStatus;
   justify-self: end;
+}
+
+.finished:hover,
+.unread:hover {
+  cursor: pointer;
 }
 
 .finished {

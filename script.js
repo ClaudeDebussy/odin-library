@@ -1,5 +1,12 @@
 let myLibrary = [];
 
+const bookPrototype = {
+  toggleRead1() {
+    this.isRead ? this.isRead = false : this.isRead = true;
+    populateLibrary();
+  }
+}
+
 // Book constructor
 function Book(title, author, pages, isRead) {
   if (!new.target) {
@@ -11,8 +18,9 @@ function Book(title, author, pages, isRead) {
   this.pages = pages;
   this.isRead = isRead;
   this.id = crypto.randomUUID();
-
 }
+
+Object.assign(Book.prototype, bookPrototype);
 
 function addBookToLibrary(title, author, pages, isRead) {
   myLibrary.push(new Book(title, author, pages, isRead));
@@ -72,6 +80,7 @@ function populateLibrary() {
   });
 
   setupTrashListeners();
+  setupToggleReadListeners();
 }
 
 var modal = document.querySelector("#newBookModal");
@@ -128,3 +137,17 @@ function setupTrashListeners() {
     });
   };
 };
+
+function setupToggleReadListeners() {
+  const toggleReadButtons = document.querySelectorAll(".read-status");
+  // console.log(toggleReadButtons);
+  toggleReadButtons.forEach(button => {
+    button.addEventListener("click", toggleRead);
+  })
+
+  function toggleRead() {
+    var uuid = this.parentNode.getAttribute("data-uuid");
+    book = myLibrary.filter(book => book.id == uuid);
+    book[0].toggleRead1();
+  }
+}
