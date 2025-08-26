@@ -125,7 +125,7 @@ newBookForm.addEventListener("submit", (e) => {
 
   const title = document.querySelector("#title").value;
   const author = document.querySelector("#author").value;
-  const pages = document.querySelector("#pages").value;
+  const pages = document.querySelector("#pages").value;  
   const finished = document.querySelector("#finished").checked ? true : false;
 
   addBookToLibrary({
